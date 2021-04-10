@@ -10,6 +10,11 @@ public class FormatValidationUtils {
 
     private FormatValidationUtils() {}
 
+    /**
+     * Devuelve valor de integer válido.
+     *
+     * @return int
+     */
     public static int validateInteger(){
         int response = -1;
         boolean isError;
@@ -27,4 +32,28 @@ public class FormatValidationUtils {
 
         return response;
     }
+
+
+    /**
+     * Devuelve un valor de booleano válido
+     * @return
+     */
+    public static boolean validateBoolean(){
+        boolean isError;
+        boolean response = false;
+
+        do{
+            try {
+                response = sc.nextBoolean();
+                isError = false;
+            } catch (InputMismatchException ime) {
+                sc.next();
+                System.out.println("Entrada inválida.  Introduzca un booleano por favor: ");
+                isError = true;
+            }
+        } while (isError);
+
+        return response;
+    }
+
 }
