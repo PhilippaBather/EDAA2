@@ -33,9 +33,33 @@ public class FormatValidationUtils {
         return response;
     }
 
+    /**
+     * Devuelve un valor de double válido.
+     *
+     * @return
+     */
+    public static double validateDouble(){
+        double response = -1;
+        boolean isError;
+
+        do{
+            try {
+                response = sc.nextDouble();
+                isError = false;
+            } catch (InputMismatchException ime) {
+                sc.next();
+                System.out.println("Entrada inválida.  Introduzca un número por favor: ");
+                isError = true;
+            }
+        } while (isError);
+
+        return response;
+    }
+
 
     /**
-     * Devuelve un valor de booleano válido
+     * Devuelve un valor de booleano válido.
+     *
      * @return
      */
     public static boolean validateBoolean(){

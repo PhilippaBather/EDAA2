@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static com.philippa.edaa2.FormatValidationUtils.*;
 import static java.lang.Integer.parseInt;
 
 public class Menu {
@@ -125,12 +126,11 @@ public class Menu {
             System.out.println("Introduzca el nombre del album: ");
             String name = input.nextLine();
             System.out.println("¿Es el contenido explícito? Introduzca true (sí) o false (no): ");
-            boolean isExplicit = Boolean.parseBoolean(input.nextLine());
-            //boolean isExplicit = Boolean.parseBoolean(input.nextLine());
+            boolean isExplicit = validateBoolean();
             System.out.println("Introduzca el número de pistas: ");
-            int tracks = Integer.parseInt(input.nextLine());
+            int tracks = validateInteger();
             System.out.println("Introduzca el precio: ");
-            double price = Double.parseDouble(input.nextLine());
+            double price = validateDouble();
 
             if (obj == OBJECT_TYPE.CD)
                 createCd(artist, name, isExplicit, tracks, price);
@@ -138,7 +138,7 @@ public class Menu {
                 createVinyl(artist, name, isExplicit, tracks, price);
 
             System.out.println("¿Quieres añadir otro? Introduzca 0 (no) o 1 (si): ");
-            int option = Integer.parseInt(input.nextLine());
+            int option = validateInteger();
 
             exitLoop = option != 1;
 
@@ -156,7 +156,7 @@ public class Menu {
      */
     public void createCd(String artist, String name, boolean isExplicit, int tracks, double price) {
         System.out.println("¿Es la edición importada? Introduzca true (si) o false (no): ");
-        boolean isImported = Boolean.parseBoolean(input.nextLine());
+        boolean isImported = validateBoolean();
         CD cd = new CD(artist, name, isExplicit, tracks, price, isImported);
 
         boolean isDuplicate = isCdDuplicate(cd);
@@ -190,7 +190,7 @@ public class Menu {
      */
     public void createVinyl(String artist, String name, boolean isExplicit, int tracks, double price) {
         System.out.println("¿Es el vinilo de segunda mano? Introduzca true (sí) or false (no): ");
-        boolean isSecondHand = Boolean.parseBoolean(input.nextLine());
+        boolean isSecondHand = validateBoolean();
         Vinyl vinyl = new Vinyl(artist, name, isExplicit, tracks, price, isSecondHand);
 
         boolean isDuplicate = isVinylDuplicate(vinyl);
@@ -254,7 +254,7 @@ public class Menu {
 
             //comprueba si el usuario quiere añadir otro pedido
             System.out.println("¿Quieres añadir otro? Introduzca 0 (no) o 1 (si): ");
-            int option = Integer.parseInt(input.nextLine());
+            int option = validateInteger();
 
             exitLoop = option != 1;
         }
@@ -299,7 +299,7 @@ public class Menu {
      */
     public boolean isCustomer() {
         System.out.println("¿El cliente tiene ID? Introduzca true (si) o false (no): ");
-        return Boolean.parseBoolean(input.nextLine());
+        return validateBoolean();
     }
 
     /**
@@ -312,7 +312,7 @@ public class Menu {
     public int getId(int orderId){
         //obtiene la ID
         System.out.println("Introduzca la ID del cliente actual: ");
-        int customerId = Integer.parseInt(input.nextLine());
+        int customerId = validateInteger();
 
         //valida la ID
         for (Customer customer : customerArrayList) {
@@ -387,7 +387,7 @@ public class Menu {
      */
     public void checkForCustomer(){
         System.out.println("Introduzca la ID del cliente: ");
-        int id = Integer.parseInt(input.nextLine());
+        int id = validateInteger();
         System.out.println("Introduzca el nombre: ");
         String name = input.nextLine();
         System.out.println("Introduzca el apellido: ");
