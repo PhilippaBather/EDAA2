@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Objects;
+
 public class Order {
 
 
@@ -93,5 +95,10 @@ public class Order {
         boolean nameEquals = (this.getName() == null && other.getName() == null)
                 || (this.getName() != null && this.getName().equals(other.getName()));
         return this.getCustomerId() == other.getCustomerId() && itemEquals && artistEquals && nameEquals;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getItem(), getArtist(), getName(), getCustomerId());
     }
 }

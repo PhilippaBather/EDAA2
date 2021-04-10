@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Objects;
+
 public class CD extends Album {
 
 
@@ -39,5 +41,10 @@ public class CD extends Album {
         if (!super.equals(o)) return false;
         CD cd = (CD) o;
         return isImport() == cd.isImport();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), isImport());
     }
 }
