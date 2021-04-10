@@ -3,6 +3,7 @@ package com.philippa.aa2ed;
 import domain.*;
 import org.junit.Test;
 
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -77,5 +78,53 @@ public class AppTests {
         assertEquals("Bather", customer.getSurname());
         assertEquals(telephone, customer.getTelephone());
         assertEquals(email, customer.getEmail());
+    }
+
+    /**
+     * Este test comprueba que el método sobrescrito equals() en la clase CD funciona como lo esperado
+     */
+    @Test
+    public void testEqualsCd() {
+        CD cd1 = new CD("Snarky Puppy", "Immigrance", false, 9, 15.99, false);
+        CD cd2 = new CD("Snarky Puppy", "Immigrance", false, 9, 15.99, false);
+        CD cd3 = new CD("Joe Satriani", "Surfing with the Alien", false,  10, 8.46, true);
+        assertEquals(cd1, cd2);
+        assertNotEquals(cd1, cd3);
+    }
+
+    /**
+     * Este test comprueba que el método sobrescrito equals() en la clase Vinyl funciona como lo esperado
+     */
+    @Test
+    public void testEqualsVinyl() {
+        Vinyl v1 = new Vinyl("Jurassic 5", "Quality Control", false, 12, 5.67, false);
+        Vinyl v2 = new Vinyl("Jurassic 5", "Quality Control", false, 12, 5.67, false);
+        Vinyl v3 = new Vinyl("A Tribe Called Quest", "People´s Instinctive Travels and the Paths of Rhythm", false, 12, 11.82, true);
+        assertEquals(v1, v2);
+        assertNotEquals(v1, v3);
+    }
+
+    /**
+     * Este test comprueba que el método sobrescrito equals() en la clase Order funciona como lo esperado
+     */
+    @Test
+    public void testEqualsOrder() {
+        Order order1 = new Order(16, OBJECT_TYPE.VINYL, "Rufus and Chaka Khan", "Rufus", 6);
+        Order order2 = new Order(16, OBJECT_TYPE.VINYL, "Rufus and Chaka Khan", "Rufus", 6);
+        Order order3 = new Order(54, OBJECT_TYPE.CD, "Ry Cooder", "Bop Till You Drop", 89);
+        assertEquals(order1, order2);
+        assertNotEquals(order1, order3);
+    }
+
+    /**
+     * Este test comprueba que el método sobrescrito equals() en la clase Customer funciona como lo esperado
+     */
+    @Test
+    public void testEqualsCustomer() {
+        Customer c1 = new Customer(85, "Mare", "Brown", telephone, email);
+        Customer c2 = new Customer(85, "Mare", "Brown", telephone, email);
+        Customer c3 = new Customer(86, "James", "Jones", telephone, email);
+        assertEquals(c1, c2);
+        assertNotEquals(c1, c3);
     }
 }
