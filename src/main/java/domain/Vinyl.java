@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Objects;
+
 public class Vinyl extends Album {
 
 
@@ -27,6 +29,8 @@ public class Vinyl extends Album {
 
     //otros métodos
 
+    //otros métodos
+
     @Override
     public String toString() {
         return "Artista/grupo: " + getArtist() + "\nNombre del album: " + getName() + "\nPistas: " + getTracks() + "\nPrecio: " + getPrice()
@@ -40,5 +44,10 @@ public class Vinyl extends Album {
         if (!super.equals(o)) return false;
         Vinyl vinyl = (Vinyl) o;
         return isSecondHand() == vinyl.isSecondHand();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), isSecondHand());
     }
 }

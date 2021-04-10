@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Customer {
     //declaramos la propiedades
@@ -112,6 +113,11 @@ public class Customer {
                 || (this.getTelephone() != null && this.getTelephone().equals(other.getTelephone()));
         boolean emailEquals = (this.getEmail() == null && other.getEmail() == null)
                 || (this.getEmail() != null && this.getEmail().equals(other.getEmail()));
-        return nameEquals && surnameEquals && telephoneEquals;
+        return nameEquals && surnameEquals && telephoneEquals && emailEquals;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getSurname(), getTelephone(), getEmail());
     }
 }

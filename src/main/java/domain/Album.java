@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Objects;
+
 abstract class Album {
 
 
@@ -71,5 +73,10 @@ abstract class Album {
         return isExplicit() == album.isExplicit() && getTracks() == album.getTracks() &&
                 Double.compare(album.getPrice(), getPrice()) == 0 && getArtist().equals(album.getArtist())
                 && getName().equals(album.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getArtist(), getName(), isExplicit(), getTracks(), getPrice());
     }
 }
