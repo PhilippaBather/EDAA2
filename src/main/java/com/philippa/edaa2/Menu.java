@@ -77,6 +77,37 @@ public class Menu {
 
     }
 
+    //Case 1: imprimir los objetos CDs a la consola
+
+    /**
+     * Este método imprime todos los CDs del array list cdArrayList en la consola
+     */
+    public void printCds() {
+        if (cdArrayList.isEmpty()){
+            System.out.println("No CDs han sido registrados.");
+        } else {
+            for (CD cd : cdArrayList) {
+                System.out.println(dashedLnBreak);
+                System.out.println(cd);
+            }
+        }
+    }
+
+    //Case 2: imprimir los objetos vinilos a la consola
+
+    /**
+     * Este método imprime todos los vinilos de array list vinylArrayList en la consola
+     */
+    public void printVinyls() {
+        if (vinylArrayList.isEmpty()){
+            System.out.println("No vinilos han sido registrados.");
+        } else {
+            for (Vinyl vinyl : vinylArrayList) {
+                System.out.println(dashedLnBreak);
+                System.out.println(vinyl);
+            }
+        }
+    }
 
     //Case 3 y 4: registrar un objeto CD (caso 3) o vinilo (caso 4)
 
@@ -94,10 +125,10 @@ public class Menu {
             System.out.println("Introduzca el nombre del album: ");
             String name = input.nextLine();
             System.out.println("¿Es el contenido explícito? Introduzca true (sí) o false (no): ");
-            boolean isExplicit = input.nextBoolean();
+            boolean isExplicit = Boolean.parseBoolean(input.nextLine());
             //boolean isExplicit = Boolean.parseBoolean(input.nextLine());
             System.out.println("Introduzca el número de pistas: ");
-            int tracks = input.nextInt();
+            int tracks = Integer.parseInt(input.nextLine());
             System.out.println("Introduzca el precio: ");
             double price = Double.parseDouble(input.nextLine());
 
@@ -316,6 +347,75 @@ public class Menu {
         customerArrayList.add(customer);
     }
 
+    //Caso 6: imprimir los objetos order (pedido) a la consola
+
+    /**
+     * Este procedimiento imprime el objeto Order (pedido) en la consola
+     */
+    public void printOrders() {
+        if (orderArrayList.isEmpty()) {
+            System.out.println("No pedidos han sido registrados");
+        } else {
+            for (Order order : orderArrayList) {
+                System.out.println(dashedLnBreak);
+                System.out.println(order);
+            }
+        }
+    }
+
+    //Caso 7: imprimir los objetos customer (cliente) a la consola
+
+    /**
+     * Este método imprime el array list de clientes
+     */
+    public void printCustomers() {
+        if (customerArrayList.isEmpty() ) {
+            System.out.println("No clientes han sido registrados.");
+        } else {
+            for (Customer customer : customerArrayList) {
+                System.out.println(dashedLnBreak);
+                System.out.println(customer);
+            }
+        }
+    }
+
+    //Caso 8: comprobar si el cliente existe en el sistema
+
+    /**
+     * Este método obtiene los detalles del cliente para comprobar si esté registrado.  Crea un objeto Customer (cliente)
+     * que pasa al método isCustomerDuplicate(Customer other)
+     */
+    public void checkForCustomer(){
+        System.out.println("Introduzca la ID del cliente: ");
+        int id = Integer.parseInt(input.nextLine());
+        System.out.println("Introduzca el nombre: ");
+        String name = input.nextLine();
+        System.out.println("Introduzca el apellido: ");
+        String surname = input.nextLine();
+        System.out.println("Introduzca el número del teléfono: ");
+        String tel = input.nextLine();
+        System.out.println("Introduzca el email: ");
+        String email = input.nextLine();
+        Customer customer = new Customer(id, name, surname, tel, email);
+        isCustomerDuplicate(customer);
+    }
+
+    /**
+     * Este método comprueba si el cliente está registrado o no y notifica al usuario.
+     * @param other el cliente que queremos buscar en el sistema
+     */
+    public void isCustomerDuplicate(Customer other){
+        for (Customer customer : customerArrayList){
+            if (customer.equals(other)) {
+                System.out.println("El cliente existe en el sistema.");
+                System.out.println(dashedLnBreak);
+                System.out.println(customer.toString());
+                System.out.println(dashedLnBreak);
+            } else {
+                System.out.println("El cliente NO existe en el sistema.");
+            }
+        }
+    }
 
     //Caso X: salir de la aplicación
 
