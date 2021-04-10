@@ -1,6 +1,6 @@
 package domain;
 
-public class Vinyl {
+public class Vinyl extends Album {
 
 
     //declaramos propiedades
