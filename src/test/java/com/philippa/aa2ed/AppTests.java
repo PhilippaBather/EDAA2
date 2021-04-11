@@ -7,6 +7,9 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Tests de los contructores y la function equals()
+ */
 public class AppTests {
     //declaramos las variables
     private static final String email = "test@test.com";
