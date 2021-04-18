@@ -15,7 +15,7 @@ Puntos de la tarea:
     d) Otros pull requests creados por otros cambios del código explicando en los comentarios 'commit'
 3) Jobs configurados en Jankins para i) clean y compile para el código inicial y ii) compile y empaquete el proyecto terminado
 4) Configuración necesario implementada para que el código del proyect sea analizado por un SonarQube
-5) VisualVM usado para monitoriza el rendimiento y el uso de memoria de la app; las capturas ha sido enviado con la entrega en Google Classroom y pegado aquí
+5) VisualVM usado para monitoriza el rendimiento y el uso de memoria de la app; las capturas ha sido enviado con la entrega en Google Classroom
 6) Maven configurado para lanzar un análisis de código del proyecto directamente del terminal con SonarQuebe
 7) Tests de JUnit añadido al proyecto y el job de Jenkins configurado para que se ejecuten cada vez que éste se lance
    a) Tests del constructores y los valores de sus atributos
@@ -24,5 +24,5 @@ Puntos de la tarea:
 9) Gestor de issues
    a) cada funcionalidad registrada como un feature
    b) 3 bugs identificados y solucionados
-10) Diagrama de clases (enviado con la entrega via Google Classroom y pegado aquí)
+10) Diagrama de clases (enviado con la entrega via Google Classroom)
 11) Una página web para el proyecto utilizando github-pages
